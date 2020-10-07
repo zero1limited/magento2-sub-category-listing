@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Zero1_SubCategoryListing::css/subcategorylisting.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Zero1\SubCategoryListing\Block\View" name="zero1.sub.category.listing" template="Zero1_SubCategoryListing::sub-category-listing.phtml" />
+        </referenceContainer>
+        <move element="zero1.sub.category.listing" destination="content" before="category.products"/>
+    </body>
+</page>

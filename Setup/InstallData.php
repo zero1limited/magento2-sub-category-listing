@@ -32,6 +32,7 @@ class InstallData implements InstallDataInterface
 				'type'         => 'int',
 				'label'        => 'Display Sub Category Listing',
 				'input'        => 'select',
+				'default'.     => '1',
 				'sort_order'   => 999,
 				'source'       => Boolean::class,
 				'global'       => ScopedAttributeInterface::SCOPE_STORE,

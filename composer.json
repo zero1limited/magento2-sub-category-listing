@@ -1,10 +1,11 @@
 {
-    "name": "zero1\/module-sub-category-listing",
-    "description": "N\/A",
+    "name": "zero1/module-sub-category-listing",
+    "description": "Adds the ability to display a sub category listing on all or specific categories",
     "type": "magento2-module",
     "version": "1.0.0",
     "license": [
-        "commercial"
+        "OSL-3.0",
+        "AFL-3.0"
     ],
     "autoload": {
         "files": [

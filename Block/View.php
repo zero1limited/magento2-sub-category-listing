@@ -31,8 +31,8 @@ class View extends Template
      * @return boolean
      */
     public function showSubCategoryListing() {
-    	if (($this->getCurrentCategoryShowSubCategoryListingAdminSetting()) && (count($this->getCurrentCategoryChildren()) > 0)) {
-			return true;
+    	if (($this->getCurrentCategoryShowSubCategoryListingAdminSetting() != '0') && (count($this->getCurrentCategoryChildren()) > 0)) {
+		return true;
     	}
     	return false;
     }

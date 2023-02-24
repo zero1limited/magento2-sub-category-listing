@@ -20,11 +20,13 @@ class View extends Template
     public function __construct(
         Template\Context $context,
         SubCategories $subCategories,
-        array $data = []
+        array $data = [],
+        \Magento\Store\Model\StoreManagerInterface $storeManager
     ) {
         parent::__construct($context, $data);
         $this->subCategories = $subCategories;
         $this->scopeConfig = $context->getScopeConfig();
+        $this->storeManager = $storeManager;
     }
     
     /**
@@ -32,7 +34,7 @@ class View extends Template
      */
     public function showSubCategoryListing() {
     	if (($this->getCurrentCategoryShowSubCategoryListingAdminSetting() != '0') && (count($this->getCurrentCategoryChildren()) > 0)) {
-		return true;
+			return true;
     	}
     	return false;
     }
@@ -51,5 +53,19 @@ class View extends Template
     public function getCurrentCategoryChildren()
     {
         return $this->subCategories->getCurrentCategoryChildren();
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubcategoryListingImageUrl($category)
+    {
+        $mediaUrl = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        $imageUrl = $category->getImageUrl();
+        $imageUrlTrim = str_replace('/media/', '', $imageUrl);
+
+        $result = str_starts_with($imageUrl, $mediaUrl) ? $imageUrl : $mediaUrl.$imageUrlTrim;
+
+        return $result;
     }
 }

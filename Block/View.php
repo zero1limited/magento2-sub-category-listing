@@ -20,8 +20,8 @@ class View extends Template
     public function __construct(
         Template\Context $context,
         SubCategories $subCategories,
-        array $data = [],
-        \Magento\Store\Model\StoreManagerInterface $storeManager
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        array $data = []
     ) {
         parent::__construct($context, $data);
         $this->subCategories = $subCategories;

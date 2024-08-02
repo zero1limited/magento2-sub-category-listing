@@ -39,6 +39,21 @@ class InstallData implements InstallDataInterface
 				'group'        => 'General Information'
 			]
 		);
+
+		$eavSetup->addAttribute(
+			\Magento\Catalog\Model\Category::ENTITY,
+			'zero1_sub_category_listing_images',
+			[
+				'type'         => 'int',
+				'label'        => 'Display Sub Category Listing as Images',
+				'input'        => 'select',
+				'default'      => '0',
+				'sort_order'   => 1000,
+				'source'       => Boolean::class,
+				'global'       => ScopedAttributeInterface::SCOPE_STORE,
+				'group'        => 'General Information'
+			]
+		);
                         
 	}
 }

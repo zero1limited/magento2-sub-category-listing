@@ -38,6 +38,16 @@ class View extends Template
     	}
     	return false;
     }
+
+    /**
+     * @return boolean
+     */
+    public function showSubCategoryListingAsImages() {
+    	if ($this->subCategories->getCurrentCategory()->getData('zero1_sub_category_listing_images')) {
+            return true;
+        }
+        return false;
+    }
     
     /**
      * @return boolean

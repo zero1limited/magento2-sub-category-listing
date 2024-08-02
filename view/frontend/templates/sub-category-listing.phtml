@@ -1,15 +1,30 @@
 <?php
 /** @var \Zero1\SubCategoryListing\Block\View $block */
 ?>
+
 <?php if ($block->showSubCategoryListing()) : ?>
-    <div class="row sub-category-listing">
-    	<?php foreach ($block->getCurrentCategoryChildren() as $currentCategoryChild) : ?>
-    	<div class="sub-category-item col-6 col-md-3 text-center mb-4">
-        	<a href="<?php echo $block->escapeUrl($currentCategoryChild->getUrl()); ?>">
-            	<img src="<?= $block->getSubcategoryListingImageUrl($currentCategoryChild)?>" alt="<?php echo $block->escapeHtml($currentCategoryChild->getName()); ?>" />
-            	<span><span><?php echo $block->escapeHtml($currentCategoryChild->getName()); ?></span></span>
-        	</a>
-    	</div>
-    	<?php endforeach; ?>
-    </div>
+	<?php if ($block->showSubCategoryListingAsImages()) : ?>
+		<div class="sub-category-listing grid grid-cols-2 lg:grid-cols-4 gap-4">
+			<?php foreach ($block->getCurrentCategoryChildren() as $currentCategoryChild) : ?>
+			<div class="sub-category-item text-center mb-4 border">
+				<a href="<?php echo $block->escapeUrl($currentCategoryChild->getUrl()); ?>">
+					<img src="<?= $block->getSubcategoryListingImageUrl($currentCategoryChild)?>" alt="<?php echo $block->escapeHtml($currentCategoryChild->getName()); ?>" width="300px" height="300px" />
+					<div class="p-4">
+						<span class="btn-primary w-full inline-block px-6 py-2"><?php echo $block->escapeHtml($currentCategoryChild->getName()); ?></span>
+					</div>
+				</a>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	<?php else: ?>
+		<div class="sub-category-listing pill-style text-left mt-6 mb-6">
+			<ul>
+				<?php foreach ($block->getCurrentCategoryChildren() as $currentCategoryChild) : ?>
+					<li class="inline-flex">
+						<a class="btn-primary px-6 py-2 text-center mr-2" href="<?php echo $block->escapeUrl($currentCategoryChild->getUrl()); ?>"><?php echo $block->escapeHtml($currentCategoryChild->getName()); ?></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	<?php endif; ?>
 <?php endif; ?>

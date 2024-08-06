@@ -2,7 +2,7 @@
     "name": "zero1/module-sub-category-listing",
     "description": "Adds the ability to display a sub category listing on all or specific categories",
     "type": "magento2-module",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "license": [
         "OSL-3.0",
         "AFL-3.0"

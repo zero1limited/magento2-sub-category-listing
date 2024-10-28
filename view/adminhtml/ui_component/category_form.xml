@@ -27,6 +27,7 @@
                 </checkbox>
             </formElements>
         </field>
+
         <field name="zero1_sub_category_listing_images" sortOrder="1000" formElement="checkbox">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

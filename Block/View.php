@@ -17,6 +17,11 @@ class View extends Template
      */
     private $scopeConfig;
 
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    private $storeManager;
+
     public function __construct(
         Template\Context $context,
         SubCategories $subCategories,
